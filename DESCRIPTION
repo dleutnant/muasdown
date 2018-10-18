@@ -1,10 +1,14 @@
 Package: muasdown
-Title: What the Package Does (one line, title case)
+Title: muasdown
 Version: 0.0.0.9000
-Authors@R: person("First", "Last", email = "first.last@example.com", role = c("aut", "cre"))
-Description: What the package does (one paragraph).
+Authors@R: person("Dominik", "Leutnant", email = "leutnant@fh-muenster.de", role = c("aut", "cre"), comment = c(ORCID = "0000-0003-3293-2315"))
+Description: Rmarkdown Thesis Template at Muenster University of Applied Sciences
+Imports:
+  rmarkdown,
+  yaml
 Depends: R (>= 3.5.0)
-License: What license is it under?
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 RoxygenNote: 6.1.0
+Suggests: testthat

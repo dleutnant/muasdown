@@ -10,10 +10,10 @@ department: Civil Engineering
 supervisor: 
   - Prof. Dr.-Ing. M. Uhl  
   - Dr.techn. D. Leutnant M.Sc.
-bibliography: mybib.bib
+bibliography: mybib
 #appendix: appendix.tex
 abstract: |
-  This is the abstract 
+  This is the abstract.
 keywords: |
   Sections; lists; figures; tables; mathematics; fonts; references; appendices
 header-includes: |

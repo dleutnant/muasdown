@@ -2,7 +2,7 @@
 % Please edit documentation in R/thesis.R
 \name{thesis}
 \alias{thesis}
-\title{Taylor & Fracis journal format.}
+\title{Rmarkdown Thesis Template at Muenster University of Applied Sciences}
 \usage{
 thesis(..., keep_tex = TRUE)
 }
@@ -16,14 +16,13 @@ R Markdown output format to pass to
   \code{\link[rmarkdown:render]{render}}
 }
 \description{
-Format for creating submissions to a Taylor & Francis journal. Adapted from
-\href{http://www.tandf.co.uk/journals/authors/InteractCADLaTeX.zip}{http://www.tandf.co.uk/journals/authors/InteractCADLaTeX.zip}.
+Create your thesis with all the beauty of R.
 }
 \examples{
 
 \dontrun{
 library(rmarkdown)
-draft("MyArticle.Rmd", template = "muas_thesis", package = "muasdown")
+draft("MyThesis.Rmd", template = "muas_thesis", package = "muasdown")
 }
 
 }

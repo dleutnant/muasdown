@@ -1,7 +1,6 @@
-#' Taylor & Fracis journal format.
+#' Rmarkdown Thesis Template at Muenster University of Applied Sciences
 #'
-#' Format for creating submissions to a Taylor & Francis journal. Adapted from
-#' \href{http://www.tandf.co.uk/journals/authors/InteractCADLaTeX.zip}{http://www.tandf.co.uk/journals/authors/InteractCADLaTeX.zip}.
+#' Create your thesis with all the beauty of R.
 #'
 #' @inheritParams rmarkdown::pdf_document
 #' @param ... Additional arguments to \code{rmarkdown::pdf_document}
@@ -13,7 +12,7 @@
 #'
 #' \dontrun{
 #' library(rmarkdown)
-#' draft("MyArticle.Rmd", template = "muas_thesis", package = "muasdown")
+#' draft("MyThesis.Rmd", template = "muas_thesis", package = "muasdown")
 #' }
 #'
 #' @export
