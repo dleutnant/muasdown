@@ -20,5 +20,5 @@ thesis <- function(..., keep_tex = TRUE) {
   inherit_pdf_document(...,
                       keep_tex = keep_tex,
                       template = find_resource("thesis", "template.tex"),
-                      citation_package = "natbib")
+                      citation_package = "biblatex")
 }

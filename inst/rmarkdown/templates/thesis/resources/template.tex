@@ -21,15 +21,16 @@
 \lohead*{\leftmark}
 \cfoot*{\pagemark}
 \setkomafont{pagination}{}
-%\usepackage{csquotes}
-%\usepackage[backend=bibtex,style=authoryear,maxbibnames=25,maxcitenames=2,firstinits=true]{biblatex}
+\usepackage{csquotes}
+\usepackage[backend=bibtex,style=authoryear,maxbibnames=25,maxcitenames=2,firstinits=true,natbib=true]{biblatex}
+\addbibresource{$bibliography$}
 %\renewcommand*{\nameyeardelim}{\addcomma\space}
 %\captionsetup{labelsep = colon}
-%\DefineBibliographyStrings{german}{andothers = {et al.,}}
-%\DeclareNameAlias{sortname}{last-first}
-\usepackage{natbib}% Citation support using natbib.sty
-\bibpunct[, ]{(}{)}{;}{a}{}{,}% Citation support using natbib.sty
-\renewcommand\bibfont{\fontsize{10}{12}\selectfont}% Bibliography support using natbib.sty
+\DefineBibliographyStrings{german}{andothers = {et al.,}}
+\DeclareNameAlias{sortname}{last-first}
+%\usepackage{natbib}% Citation support using natbib.sty
+%\bibpunct[, ]{(}{)}{;}{a}{}{,}% Citation support using natbib.sty
+%\renewcommand\bibfont{\fontsize{10}{12}\selectfont}% Bibliography support using natbib.sty
 
 \usepackage{tabularx}
 \usepackage{float}
@@ -82,7 +83,7 @@ $endif$
 \end{textblock*}
 \begin{textblock*}{156mm}(27mm,240mm)
 	\normalsize
-	\begin{tabularx}{156mm}{l l X}
+	\begin{tabularx}{120mm}{l X l}
 		Vorgelegt von:&\textbf{$name$}&(Matr.-Nr. $studentid$)\\
 		&&\\
 		Referent:&\textbf{$for(supervisor)$$supervisor$$sep$ \newline $endfor$}\\
@@ -121,10 +122,10 @@ Hiermit bestätige ich, dass ich die Arbeit selbstständig und nur unter Verwend
 $body$
 
 $if(bibliography)$
-\bibliographystyle{plainnat}
-\bibliography{$bibliography$}
+%\bibliographystyle{plainnat}
+%\bibliography{$bibliography$}
+\printbibliography[]
 $endif$
-
 
 $if(appendix)$
 \input{"$appendix$"}
