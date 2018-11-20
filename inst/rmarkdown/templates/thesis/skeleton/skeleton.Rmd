@@ -1,7 +1,7 @@
 ---
 title: This is the title
 type: Masterarbeit
-name: Max Mustermann
+author: Max Mustermann
 studentid: mm123456
 modul: M4S20
 semester: |
@@ -10,16 +10,12 @@ department: Civil Engineering
 supervisor: 
   - Prof. Dr.-Ing. M. Uhl  
   - Dr.techn. D. Leutnant M.Sc.
-bibliography: mybib
+bibliography: mybib.bib
+#header-includes: before.tex
 #appendix: appendix.tex
 abstract: |
   This is the abstract.
-keywords: |
-  Sections; lists; figures; tables; mathematics; fonts; references; appendices
-header-includes: |
-  \usepackage{hyperref}
-  \usepackage[utf8]{inputenc}
-  \def\tightlist{}
+keywords: ["Sections", "lists", "figures", "tables", "references", "appendices"]
 output: muasdown::thesis
 ---
 

@@ -22,7 +22,7 @@
 \cfoot*{\pagemark}
 \setkomafont{pagination}{}
 \usepackage{csquotes}
-\usepackage[backend=bibtex,style=authoryear,maxbibnames=25,maxcitenames=2,firstinits=true,natbib=true]{biblatex}
+\usepackage[backend=biber,style=authoryear,maxbibnames=25,maxcitenames=2,firstinits=true,natbib=true]{biblatex}
 \addbibresource{$bibliography$}
 %\renewcommand*{\nameyeardelim}{\addcomma\space}
 %\captionsetup{labelsep = colon}
@@ -59,16 +59,40 @@
 
 \usepackage{hyperref}
 
+\def\tightlist{}
+
+\hypersetup{unicode=true,
+$if(title)$
+  pdftitle={$title$},
+$endif$
+$if(author)$
+  pdfauthor={$author$},
+$endif$
+$if(keywords)$
+  pdfkeywords={$for(keywords)$$keywords$$sep$; $endfor$},
+$endif$
+$if(colorlinks)$
+  colorlinks=true,
+  linkcolor=$if(linkcolor)$$linkcolor$$else$Maroon$endif$,
+  citecolor=$if(citecolor)$$citecolor$$else$Blue$endif$,
+  urlcolor=$if(urlcolor)$$urlcolor$$else$Blue$endif$,
+$else$
+  pdfborder={0 0 0},
+$endif$
+breaklinks=true}
+
 % see https://stackoverflow.com/a/47122900
 $if(highlighting-macros)$
 $highlighting-macros$
 $endif$
 
+% additional includes
 $if(header-includes)$
 $header-includes$
 $endif$
 
 \begin{document}
+
 \begin{titlepage}
 \begin{textblock}{210}(0,0)
 	\includegraphics[width=210mm]{frontpage.png}
@@ -115,18 +139,29 @@ Hiermit bestätige ich, dass ich die Arbeit selbstständig und nur unter Verwend
 \end{table}
 \newpage
 
-\tableofcontents
-\listoffigures
-\listoftables
+$if(abstract)$
+\begin{abstract}
+$abstract$
+\end{abstract}
+$endif$
 
+% include before body
+$for(include-before)$
+$include-before$
+$endfor$
+
+\tableofcontents
+\listoftables
+\listoffigures
+
+% body
 $body$
 
 $if(bibliography)$
-%\bibliographystyle{plainnat}
-%\bibliography{$bibliography$}
-\printbibliography[]
+\printbibliography$if(bib-title)$[title=$bib-title$]$endif$
 $endif$
 
+% include after body
 $if(appendix)$
 \input{"$appendix$"}
 $endif$
