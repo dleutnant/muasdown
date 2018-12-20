@@ -141,7 +141,10 @@ Hiermit bestätige ich, dass ich die Arbeit selbstständig und nur unter Verwend
 
 $if(abstract)$
 \begin{abstract}
-$abstract$
+$abstract$\\
+$if(keywords)$
+\textbf{Keywords:} $for(keywords)$$keywords$$sep$; $endfor$
+$endif$
 \end{abstract}
 $endif$
 
