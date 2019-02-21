@@ -13,10 +13,13 @@ supervisor:
 bibliography: mybib.bib
 #header-includes: before.tex
 #appendix: appendix.tex
+task: task.pdf
+noteofthanks: noteofthanks.tex
 abstract: |
   This is the abstract.
 keywords: ["Sections", "lists", "figures", "tables", "references", "appendices"]
 output: muasdown::thesis
+fig_caption: yes
 ---
 
 # Introduction

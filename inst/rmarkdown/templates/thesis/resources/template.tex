@@ -1,4 +1,4 @@
-\documentclass[10 pt,bibliography=totoc]{scrreprt}
+\documentclass[11 pt,bibliography=totoc,listof=totoc]{scrreprt}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[ngerman]{isodate}
@@ -13,6 +13,7 @@
 \usepackage[labelfont={bf,sf},figurename=Abb.,font={small},labelsep=space,nooneline]{caption}
 \usepackage{subcaption}
 \usepackage{caption3}
+\usepackage{pdfpages}
 \usepackage[a4paper,width=156mm,top=30mm, bottom=17mm,left=27mm,headsep=10mm, footskip=8mm]{geometry}
 \usepackage[automark,headsepline,footsepline,plainfootsepline,plainheadsepline]{scrlayer-scrpage}
 \clearpairofpagestyles
@@ -24,27 +25,24 @@
 \usepackage{csquotes}
 \usepackage[backend=biber,style=authoryear,maxbibnames=25,maxcitenames=2,firstinits=true,natbib=true]{biblatex}
 \addbibresource{$bibliography$}
-%\renewcommand*{\nameyeardelim}{\addcomma\space}
-%\captionsetup{labelsep = colon}
 \DefineBibliographyStrings{german}{andothers = {et al.,}}
 \DeclareNameAlias{sortname}{last-first}
-%\usepackage{natbib}% Citation support using natbib.sty
-%\bibpunct[, ]{(}{)}{;}{a}{}{,}% Citation support using natbib.sty
-%\renewcommand\bibfont{\fontsize{10}{12}\selectfont}% Bibliography support using natbib.sty
-
+\usepackage{booktabs}
 \usepackage{tabularx}
 \usepackage{float}
+\setcounter{secnumdepth}{3}
+\setcounter{tocdepth}{3}
 \usepackage{setspace}
 \setlength{\parindent}{0pt}
 \ifundefinedorrelax{chapterformat}{}{%
-	\renewcommand*{\chapterformat}{\makebox[0pt][r]{\chapappifchapterprefix{\ }{\makebox[12mm][l]{\thechapter\autodot\enskip}}}}%
+	\renewcommand*{\chapterformat}{\makebox[0pt][r]{\chapappifchapterprefix{\ }{\makebox[13mm][l]{\thechapter\autodot\enskip}}}}%
 }
 \providecommand*{\sectionformat}{}
-\renewcommand*{\sectionformat}{\makebox[0pt][r]{\makebox[12mm][l]{\thesection\autodot\enskip}}}
+\renewcommand*{\sectionformat}{\makebox[0pt][r]{\makebox[13mm][l]{\thesection\autodot\enskip}}}
 \providecommand*{\subsectionformat}{}
-\renewcommand*{\subsectionformat}{\makebox[0pt][r]{\makebox[12mm][l]{\thesubsection\autodot\enskip}}}
+\renewcommand*{\subsectionformat}{\makebox[0pt][r]{\makebox[13mm][l]{\thesubsection\autodot\enskip}}}
 \providecommand*{\subsubsectionformat}{}
-\renewcommand*{\subsubsectionformat}{\makebox[0pt][r]{\makebox[12mm][l]{\thesubsubsection\autodot\enskip}}}
+\renewcommand*{\subsubsectionformat}{\makebox[0pt][r]{\makebox[13mm][l]{\thesubsubsection\autodot\enskip}}}
 \renewcommand*{\othersectionlevelsformat}[1]{\makebox[0pt][r]{\csnamethe#1\endcsname\autodot\enskip}}
 \makeatletter
 \setlength{\@fptop}{0pt}
@@ -56,6 +54,18 @@
 \makeatother
 \renewcommand*{\chapterheadstartvskip}{\vspace*{0pt}}
 \renewcommand*{\chapterheadendvskip}{\vspace*{8pt}}
+
+\usepackage{rotating}
+\usepackage{multirow}
+\usepackage{listings}
+\makeatletter\renewcommand*{\fps@figure}{H}\makeatother
+
+\setlength{\abovedisplayskip}{-10pt}
+\setlength{\belowdisplayskip}{0pt}
+\setlength{\abovedisplayshortskip}{0pt}
+\setlength{\belowdisplayshortskip}{0pt}
+
+\makeatletter\renewcommand{\@dotsep}{10000}\makeatother
 
 \usepackage{hyperref}
 
@@ -94,8 +104,8 @@ $endif$
 \begin{document}
 
 \begin{titlepage}
-\begin{textblock}{210}(0,0)
-	\includegraphics[width=210mm]{frontpage.png}
+\begin{textblock}{190}(1,0)
+	\includegraphics[width=190mm]{frontpage.eps}
 \end{textblock}
 \doublespacing
 \begin{textblock*}{156mm}(27mm,175mm)
@@ -125,6 +135,9 @@ $endif$
 \clearpage
 \newpage
 \thispagestyle{empty}
+\includepdf[pages=-]{$task$}
+\newpage
+\thispagestyle{empty}
 \vspace*{10mm}
 \normalsize
 \doublespacing
@@ -137,8 +150,13 @@ Hiermit bestätige ich, dass ich die Arbeit selbstständig und nur unter Verwend
 		Ort, Datum& &Unterschrift
 	\end{tabular}
 \end{table}
+$if(noteofthanks)$
 \newpage
-
+\input{$noteofthanks$}
+$endif$
+\newpage
+\thispagestyle{empty}
+\onehalfspacing
 $if(abstract)$
 \begin{abstract}
 $abstract$\\
@@ -153,9 +171,20 @@ $for(include-before)$
 $include-before$
 $endfor$
 
+\pagenumbering{Roman}
+\setcounter{page}{1}
 \tableofcontents
 \listoftables
 \listoffigures
+
+\newpage
+\onehalfspacing
+\addchap{Symbol- und Abkürzungsverzeichnis}
+\input{listofsymbols}
+
+\newpage
+\pagenumbering{arabic}
+\setcounter{page}{1}
 
 % body
 $body$
