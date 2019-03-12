@@ -50,5 +50,11 @@ Note that the `echo = FALSE` parameter was added to the code chunk to prevent pr
 
 [@A131; @Fasel2016; @Thole2004]
 
-# References {.unnumbered}
+\printbibliography
+
+\addchap{Anhang}
+\setcounter{chapter}{6}
+
+\addsec{Anhang 1 -- Titel}
+
 
