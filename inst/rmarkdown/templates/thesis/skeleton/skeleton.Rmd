@@ -15,12 +15,15 @@ bibliography: mybib.bib
 #appendix: appendix.tex
 task: task.pdf
 noteofthanks: noteofthanks.tex
-abstract: |
-  This is the abstract.
+abstract: \input{abstract}
 keywords: ["Sections", "lists", "figures", "tables", "references", "appendices"]
 output: muasdown::thesis
 fig_caption: yes
 ---
+
+# Über muasdown
+
+Mit diesem Paket können Arbeiten im CI der Fachhochschule Münster erstellt werden. Genaueres zum Umgang mit R Markdown steht in \autoref{r-markdown}. Vor der Kompilierung der PDF-Dateien muss sichergestellt werden, dass die Dateien "mybib.bib", "noteofthanks.tex" und "abstract.tex" im Projektordner vorliegen. Diese sollten bei Projekterstellung automatisch erzeugt werden. Zusätzlich dazu muss die Aufgabenstellung als PDF-Datei mit dem Namen "task.pdf" in den Ordner gelegt werden. Sollte einer dieser Abschnitte nicht benötigt werden, kann dieser im Rmd-Header durch einfügen einer Raute am Zeilenanfang entfernt werden. Der unnummerierte Anhang kann durch entfernen der Zeilen nach "printbibliography" aus dem Dokument gelöscht werden.
 
 # Introduction
 

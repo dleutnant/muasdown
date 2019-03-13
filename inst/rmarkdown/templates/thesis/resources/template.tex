@@ -159,21 +159,23 @@ Hiermit bestätige ich, dass ich die Arbeit selbstständig und nur unter Verwend
 		Ort, Datum& &Unterschrift
 	\end{tabular}
 \end{table}
+\onehalfspacing
 $if(noteofthanks)$
-\newpage
-\newpage
+%\newpage
+%\newpage
+\addchap*{Danksagung}
+\thispagestyle{empty}
 \input{$noteofthanks$}
 $endif$
-\newpage
-\thispagestyle{empty}
-\onehalfspacing
+
 $if(abstract)$
-\begin{abstract}
+\addchap*{Zusammenfassung}
+\thispagestyle{empty}
 $abstract$\\
 $if(keywords)$
+\\ \ 
 \textbf{Keywords:} $for(keywords)$$keywords$$sep$; $endfor$
 $endif$
-\end{abstract}
 $endif$
 \newpage \ \thispagestyle{empty} \setcounter{page}{0} \newpage
 % include before body
