@@ -138,13 +138,15 @@ $endif$
 \end{textblock*}
 \end{titlepage}
 \clearpage
-\newpage \ 
+\newpage \
 \newpage \thispagestyle{empty}
 \mbox{~}
 \clearpage
 \newpage
 \thispagestyle{empty}
+$if(task)$
 \includepdf[pages=-]{$task$}
+$endif$
 \newpage
 \thispagestyle{empty}
 \vspace*{10mm}
@@ -173,7 +175,7 @@ $if(abstract)$
 \thispagestyle{empty}
 $abstract$\\
 $if(keywords)$
-\\ \ 
+\\ \
 \textbf{Keywords:} $for(keywords)$$keywords$$sep$; $endfor$
 $endif$
 $endif$
