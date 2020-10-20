@@ -40,7 +40,7 @@
 \setcounter{tocdepth}{3}
 \usepackage{setspace}
 \setlength{\parindent}{0pt}
-\ifundefinedorrelax{chapterformat}{}{%
+\Ifundefinedorrelax{chapterformat}{}{%
 	\renewcommand*{\chapterformat}{\makebox[0pt][r]{\chapappifchapterprefix{\ }{\makebox[13mm][l]{\thechapter\autodot\enskip}}}}%
 }
 \providecommand*{\sectionformat}{}
